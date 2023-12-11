@@ -12,4 +12,12 @@ class Profile extends Model
     protected $casts = [
         'balance' => 'float'
     ];
+
+    protected $fillable  = [
+        'name',
+        'description',
+        'balance',
+        'currency',
+        'user_id'
+    ];
 }

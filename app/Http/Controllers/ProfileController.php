@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use App\Http\Resources\ProfileResource;
 use App\Models\Profile;
 use Illuminate\Http\Request;
@@ -24,9 +25,14 @@ class ProfileController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ProfileRequest $request)
     {
-        //
+        $profile = Profile::create([
+            ...$request->validated(),
+            'user_id' => auth()->id()
+        ]);
+
+        return ProfileResource::make($profile);
     }
 
     /**

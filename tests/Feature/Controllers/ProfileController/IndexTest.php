@@ -28,6 +28,7 @@ class IndexTest extends TestCase
             ->create(['user_id' => $user->id]);
 
         $this->getJson('api/profiles')
+            ->assertSuccessful()
             ->assertJson(
                 fn (AssertableJson $json) =>
                 $json->has('meta')

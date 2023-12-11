@@ -38,24 +38,36 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
-        //
+        $profile = Profile::whereId($id)
+            ->whereUserId(auth()->id())
+            ->firstOrFail();
+
+        return ProfileResource::make($profile);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ProfileRequest $request, Profile $profile)
     {
-        //
+        $profile->update($request->validated());
+
+        return ProfileResource::make($profile);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
-        //
+        $profile = Profile::whereId($id)
+            ->whereUserId(auth()->id())
+            ->firstOrFail();
+
+        $profile->delete();
+
+        return response([]);
     }
 }

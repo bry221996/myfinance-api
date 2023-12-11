@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->text('description');
-            $table->decimal('balance');
+            $table->decimal('balance')->default(0);
             $table->string('currency');
             $table->timestamps();
             $table->softDeletes();

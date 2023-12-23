@@ -32,8 +32,6 @@ class ShowTest extends TestCase
                     ->where('data.id', $profile->id)
                     ->where('data.name', $profile->name)
                     ->where('data.description', $profile->description)
-                    ->where('data.currency', $profile->currency)
-                    ->where('data.balance', fn ($balance) => $balance == $profile->balance)
                     ->etc()
             );
 

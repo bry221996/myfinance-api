@@ -31,8 +31,6 @@ class StoreTest extends TestCase
                 fn (AssertableJson $json) =>
                 $json->where('data.name', $profile->name)
                     ->where('data.description', $profile->description)
-                    ->where('data.currency', $profile->currency)
-                    ->where('data.balance', fn ($balance) => $balance == $profile->balance)
                     ->etc()
             );
 
@@ -61,9 +59,6 @@ class StoreTest extends TestCase
         return [
             [['name' => null],  "name"],
             [['description' => null],  "description"],
-            [['currency' => null],  "currency"],
-            [['balance' => null],  "balance"],
-            [['currency' => "invalid-currency"],  "currency"],
         ];
     }
 }

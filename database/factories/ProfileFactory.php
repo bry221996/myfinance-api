@@ -20,9 +20,7 @@ class ProfileFactory extends Factory
         return [
             'name' => $this->faker->words(3, true),
             'description' => $this->faker->paragraph,
-            'currency' => $this->faker->currencyCode,
             'user_id' => fn () => User::factory()->create()->id,
-            'balance' => 0.0
         ];
     }
 }

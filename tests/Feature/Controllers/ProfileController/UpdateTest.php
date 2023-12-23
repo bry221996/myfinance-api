@@ -33,8 +33,6 @@ class UpdateTest extends TestCase
                     ->where('data.id', $profile->id)
                     ->where('data.name', $updatedProfile->name)
                     ->where('data.description', $updatedProfile->description)
-                    ->where('data.currency', $updatedProfile->currency)
-                    ->where('data.balance', fn ($balance) => $balance == $updatedProfile->balance)
                     ->etc()
             );
 
@@ -79,9 +77,6 @@ class UpdateTest extends TestCase
         return [
             [['name' => null],  "name"],
             [['description' => null],  "description"],
-            [['currency' => null],  "currency"],
-            [['balance' => null],  "balance"],
-            [['currency' => "invalid-currency"],  "currency"],
         ];
     }
 }

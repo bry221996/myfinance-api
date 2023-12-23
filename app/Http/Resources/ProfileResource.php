@@ -18,8 +18,6 @@ class ProfileResource extends JsonResource
             "id" => $this->id,
             "name" => $this->name,
             "description" => $this->description,
-            "balance" => $this->balance,
-            "currency" => $this->currency,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
         ];

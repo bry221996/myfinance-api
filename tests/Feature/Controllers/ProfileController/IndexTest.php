@@ -40,8 +40,6 @@ class IndexTest extends TestCase
                         $json->where('id', $profiles->first()->id)
                             ->where('name', $profiles->first()->name)
                             ->where('description', $profiles->first()->description)
-                            ->where('currency', $profiles->first()->currency)
-                            ->where('balance', fn ($balance) => $balance == $profiles->first()->balance)
                             ->etc()
                     )
             );

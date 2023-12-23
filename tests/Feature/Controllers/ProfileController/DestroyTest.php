@@ -5,7 +5,6 @@ namespace Tests\Feature\Controllers\ProfileController;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Testing\Fluent\AssertableJson;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 

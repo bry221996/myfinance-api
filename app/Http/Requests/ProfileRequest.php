@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Spatie\ValidationRules\Rules\Currency;
 
 class ProfileRequest extends FormRequest
 {
@@ -25,8 +24,6 @@ class ProfileRequest extends FormRequest
         return [
             'name' => 'string|required',
             'description' =>  'string|required',
-            'currency' => ['required', new Currency()],
-            'balance' => 'required|numeric'
         ];
     }
 }

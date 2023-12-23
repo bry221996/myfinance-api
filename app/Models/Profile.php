@@ -18,8 +18,6 @@ class Profile extends Model
     protected $fillable  = [
         'name',
         'description',
-        'balance',
-        'currency',
         'user_id'
     ];
 }

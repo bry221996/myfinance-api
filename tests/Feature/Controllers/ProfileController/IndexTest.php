@@ -23,8 +23,8 @@ class IndexTest extends TestCase
     {
         $this->actingAs($user = User::factory()->create());
 
-        $profiles = Profile::factory()
-            ->count($count  = $this->faker()->numberBetween(1, 5))
+        Profile::factory()
+            ->count($this->faker()->numberBetween(1, 5))
             ->create(['user_id' => $user->id]);
 
         $this->getJson('api/profiles')
@@ -35,11 +35,11 @@ class IndexTest extends TestCase
                     ->has('links')
                     ->has(
                         'data',
-                        $count,
+                        $user->profiles()->count(),
                         fn (AssertableJson $json) =>
-                        $json->where('id', $profiles->first()->id)
-                            ->where('name', $profiles->first()->name)
-                            ->where('description', $profiles->first()->description)
+                        $json->where('id', $user->profiles()->first()->id)
+                            ->where('name', $user->profiles()->first()->name)
+                            ->where('description', $user->profiles()->first()->description)
                             ->etc()
                     )
             );

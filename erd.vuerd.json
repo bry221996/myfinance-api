@@ -413,7 +413,7 @@
           "active": false,
           "left": 675,
           "top": 112,
-          "zIndex": 200,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60
         },
@@ -424,29 +424,6 @@
         "name": "wallets",
         "comment": "",
         "columns": [
-          {
-            "id": "4820e281-8ac5-4b4d-abbb-15910d558aa4",
-            "name": "profile_id",
-            "comment": "",
-            "dataType": "BIGINT",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            }
-          },
           {
             "id": "443f31ad-d48f-4a07-bc77-0c2ff18c1a47",
             "name": "balance",
@@ -584,13 +561,59 @@
               "widthDataType": 60,
               "widthDefault": 60
             }
+          },
+          {
+            "id": "cb9ca38d-ed03-4c41-8a69-8d0d358124c4",
+            "name": "name",
+            "comment": "",
+            "dataType": "VARCHAR",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            }
+          },
+          {
+            "id": "b13d3b19-a1c0-4c77-855f-70ba491c749d",
+            "name": "description",
+            "comment": "",
+            "dataType": "TEXT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 64.8671875,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            }
           }
         ],
         "ui": {
-          "active": false,
-          "left": 674.6667,
+          "active": true,
+          "left": 676.6667,
           "top": 579,
-          "zIndex": 211,
+          "zIndex": 22,
           "widthName": 60,
           "widthComment": 60
         },
@@ -767,7 +790,7 @@
           "active": false,
           "left": 1160.8667,
           "top": 112,
-          "zIndex": 210,
+          "zIndex": 3,
           "widthName": 61.97900390625,
           "widthComment": 60
         },
@@ -826,7 +849,7 @@
           "columnIds": [
             "2b82ba15-9c3d-4759-9884-308775dd5e0a"
           ],
-          "x": 790.081006640625,
+          "x": 792.081006640625,
           "y": 579,
           "direction": "top"
         },

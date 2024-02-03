@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WalletController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,8 @@ Route::group(['middleware' =>'auth:sanctum','verified'], function() {
     });
 
     Route::apiResource('/profiles', ProfileController::class);
+
+    Route::group(['middleware' => 'profile'], function() {
+        Route::apiResource('/wallets', WalletController::class);
+    });
 });

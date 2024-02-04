@@ -13,9 +13,10 @@ class WalletController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $wallets = QueryBuilder::for(Wallet::class)
+            ->whereProfileId($request->profile->id)
             ->paginate();
 
         return WalletResource::collection($wallets);

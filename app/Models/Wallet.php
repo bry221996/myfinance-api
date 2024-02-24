@@ -10,6 +10,6 @@ class Wallet extends Model
     use HasFactory;
 
     protected $casts = [
-        'balance' => 'double'
+        'balance' => 'double',
     ];
 }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\WalletResource;
-use App\Models\Profile;
 use App\Models\Wallet;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;

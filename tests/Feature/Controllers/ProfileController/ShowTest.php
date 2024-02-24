@@ -15,6 +15,7 @@ class ShowTest extends TestCase
 
     /**
      * @test
+     *
      * @group profiles
      * @group profiles.show
      */
@@ -27,8 +28,7 @@ class ShowTest extends TestCase
         $this->getJson("api/profiles/$profile->id")
             ->assertSuccessful()
             ->assertJson(
-                fn (AssertableJson $json) =>
-                $json
+                fn (AssertableJson $json) => $json
                     ->where('data.id', $profile->id)
                     ->where('data.name', $profile->name)
                     ->where('data.description', $profile->description)
@@ -39,6 +39,7 @@ class ShowTest extends TestCase
 
     /**
      * @test
+     *
      * @group profiles
      * @group profiles.show
      */

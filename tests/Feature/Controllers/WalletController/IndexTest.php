@@ -12,11 +12,12 @@ use Tests\TestCase;
 
 class IndexTest extends TestCase
 {
-    use WithFaker;
     use RefreshDatabase;
+    use WithFaker;
 
     /**
      * @test
+     *
      * @group wallets
      * @group wallets.index
      */
@@ -27,20 +28,18 @@ class IndexTest extends TestCase
         $defaultProfile = $user->profiles->first();
 
         $wallets = Wallet::factory()
-            ->count($count  = $this->faker()->numberBetween(1, 5))
+            ->count($count = $this->faker()->numberBetween(1, 5))
             ->create(['profile_id' => $defaultProfile->id]);
 
-        $this->getJson("api/wallets", ['X-Profile-ID' => $defaultProfile->id])
+        $this->getJson('api/wallets', ['X-Profile-ID' => $defaultProfile->id])
             ->assertSuccessful()
             ->assertJson(
-                fn (AssertableJson $json) =>
-                $json->has('meta')
+                fn (AssertableJson $json) => $json->has('meta')
                     ->has('links')
                     ->has(
                         'data',
                         $count,
-                        fn (AssertableJson $json) =>
-                        $json->where('id', $wallets->first()->id)
+                        fn (AssertableJson $json) => $json->where('id', $wallets->first()->id)
                             ->where('name', $wallets->first()->name)
                             ->where('currency', $wallets->first()->currency)
                             ->where('description', $wallets->first()->description)
@@ -51,6 +50,7 @@ class IndexTest extends TestCase
 
     /**
      * @test
+     *
      * @group wallets
      * @group wallets.index
      */
@@ -58,7 +58,7 @@ class IndexTest extends TestCase
     {
         $this->actingAs(User::factory()->create());
 
-        $this->getJson("api/wallets", ['X-Profile-ID' => Profile::factory()->create()->id])
+        $this->getJson('api/wallets', ['X-Profile-ID' => Profile::factory()->create()->id])
             ->assertForbidden();
     }
 }

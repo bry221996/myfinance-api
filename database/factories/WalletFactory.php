@@ -22,7 +22,7 @@ class WalletFactory extends Factory
             'name' => $this->faker->words(3, true),
             'description' => $this->faker->paragraph,
             'balance' => $this->faker->numberBetween(0, 1000),
-            'currency' => $this->faker->currencyCode
+            'currency' => $this->faker->currencyCode,
         ];
     }
 }

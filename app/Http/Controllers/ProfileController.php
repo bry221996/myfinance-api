@@ -28,7 +28,7 @@ class ProfileController extends Controller
     {
         $profile = Profile::create([
             ...$request->validated(),
-            'user_id' => auth()->id()
+            'user_id' => auth()->id(),
         ]);
 
         return ProfileResource::make($profile);

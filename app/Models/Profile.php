@@ -11,13 +11,20 @@ class Profile extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $casts = [
-        'balance' => 'float'
-    ];
+    protected $casts
+        = [
+            'balance' => 'float',
+        ];
 
-    protected $fillable  = [
-        'name',
-        'description',
-        'user_id'
-    ];
+    protected $fillable
+        = [
+            'name',
+            'description',
+            'user_id',
+        ];
+
+    public function test()
+    {
+
+    }
 }

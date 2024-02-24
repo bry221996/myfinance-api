@@ -14,6 +14,7 @@ class DestroyTest extends TestCase
 
     /**
      * @test
+     *
      * @group profiles
      * @group profiles.destroy
      */
@@ -32,6 +33,7 @@ class DestroyTest extends TestCase
 
     /**
      * @test
+     *
      * @group profiles
      * @group profiles.destroy
      */

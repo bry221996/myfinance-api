@@ -22,7 +22,7 @@ class ProfileMiddleware
             ->whereUserId(auth()->id())
             ->first();
 
-        if (!$profile) {
+        if (! $profile) {
             return response()->json(['message' => 'Forbiddent'], 403);
         }
 

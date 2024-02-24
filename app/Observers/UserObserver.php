@@ -13,7 +13,7 @@ class UserObserver
     {
         $user->profiles()->create([
             'name' => 'Default',
-            'description' => 'Default Profile'
+            'description' => 'Default Profile',
         ]);
     }
 

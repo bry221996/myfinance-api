@@ -15,6 +15,7 @@ class UpdateTest extends TestCase
 
     /**
      * @test
+     *
      * @group profiles
      * @group profiles.update
      */
@@ -28,8 +29,7 @@ class UpdateTest extends TestCase
         $this->putJson("api/profiles/$profile->id", $data = $updatedProfile->toArray())
             ->assertSuccessful()
             ->assertJson(
-                fn (AssertableJson $json) =>
-                $json
+                fn (AssertableJson $json) => $json
                     ->where('data.id', $profile->id)
                     ->where('data.name', $updatedProfile->name)
                     ->where('data.description', $updatedProfile->description)
@@ -41,6 +41,7 @@ class UpdateTest extends TestCase
 
     /**
      * @test
+     *
      * @group profiles
      * @group profiles.update
      */
@@ -56,16 +57,18 @@ class UpdateTest extends TestCase
 
     /**
      * @test
+     *
      * @group profiles
      * @group profiles.update
+     *
      * @dataProvider validationTestData
      */
     public function user_cannot_update_profile_if_there_is_validation_error(array $overrides, string $field): void
     {
         Sanctum::actingAs($user = User::factory()->create());
 
-        $profile =  Profile::factory()->create(['user_id' => $user->id]);
-        $updatedProfile = Profile::factory()->make(['user_id' => $user->id,...$overrides]);
+        $profile = Profile::factory()->create(['user_id' => $user->id]);
+        $updatedProfile = Profile::factory()->make(['user_id' => $user->id, ...$overrides]);
 
         $this->putJson("api/profiles/$profile->id", $updatedProfile->toArray())
             ->assertUnprocessable()
@@ -75,8 +78,8 @@ class UpdateTest extends TestCase
     public static function validationTestData(): array
     {
         return [
-            [['name' => null],  "name"],
-            [['description' => null],  "description"],
+            [['name' => null],  'name'],
+            [['description' => null],  'description'],
         ];
     }
 }

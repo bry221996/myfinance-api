@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -34,8 +33,8 @@ class RegisteredUserController extends Controller
         ]);
 
         $user->profiles()->create([
-            'name'=> 'Default',
-            'description' => "Default Profile"
+            'name' => 'Default',
+            'description' => 'Default Profile',
         ]);
 
         event(new Registered($user));

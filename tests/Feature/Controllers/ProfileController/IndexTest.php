@@ -11,11 +11,12 @@ use Tests\TestCase;
 
 class IndexTest extends TestCase
 {
-    use WithFaker;
     use RefreshDatabase;
+    use WithFaker;
 
     /**
      * @test
+     *
      * @group profiles
      * @group profiles.index
      */
@@ -30,14 +31,12 @@ class IndexTest extends TestCase
         $this->getJson('api/profiles')
             ->assertSuccessful()
             ->assertJson(
-                fn (AssertableJson $json) =>
-                $json->has('meta')
+                fn (AssertableJson $json) => $json->has('meta')
                     ->has('links')
                     ->has(
                         'data',
                         $user->profiles()->count(),
-                        fn (AssertableJson $json) =>
-                        $json->where('id', $user->profiles()->first()->id)
+                        fn (AssertableJson $json) => $json->where('id', $user->profiles()->first()->id)
                             ->where('name', $user->profiles()->first()->name)
                             ->where('description', $user->profiles()->first()->description)
                             ->etc()
@@ -47,6 +46,7 @@ class IndexTest extends TestCase
 
     /**
      * @test
+     *
      * @group profiles
      * @group profiles.index
      */
@@ -59,7 +59,7 @@ class IndexTest extends TestCase
         $this->getJson('api/profiles')
             ->assertJsonMissing([
                 'id' => $profile->id,
-                'name' => $profile->name
+                'name' => $profile->name,
             ]);
     }
 }

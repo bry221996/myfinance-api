@@ -16,15 +16,9 @@ class Profile extends Model
             'balance' => 'float',
         ];
 
-    protected $fillable
-        = [
+    protected $fillable = [
             'name',
             'description',
             'user_id',
         ];
-
-    public function test()
-    {
-
-    }
 }

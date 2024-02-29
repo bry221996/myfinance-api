@@ -12,7 +12,7 @@ class ProfileMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  Closure(Request): (Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -23,7 +23,7 @@ class ProfileMiddleware
             ->first();
 
         if (! $profile) {
-            return response()->json(['message' => 'Forbiddent'], 403);
+            return response()->json(['message' => 'Forbidden'], 403);
         }
 
         $request->merge(['profile' => $profile]);

@@ -12,4 +12,12 @@ class Wallet extends Model
     protected $casts = [
         'balance' => 'double',
     ];
+
+    protected $fillable = [
+        'name',
+        'balance',
+        'currency',
+        'profile_id',
+        'description',
+    ];
 }
